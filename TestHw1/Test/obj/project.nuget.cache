@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cGeV/D2KJLguXybqJLq7QNPvYttK/BBH60sczWXGPCYAJ/BsNmoR0Z46pMqecGzRPSbYoCST4N7zoqmzKKejoA==",
+  "dgSpecHash": "Oxvhnu6pLEJMZ1ciDBlMHA7T3zVuSZ8Of8I+7nMSLZqo0w2MXlXu9WDvvXg6OBTMlJ8ExMrHMn9AfRUu0wz7gA==",
   "success": true,
-  "projectFilePath": "C:\\Technologies\\С#\\asp net\\TestHw1\\Test\\Test.csproj",
+  "projectFilePath": "C:\\Technologies\\С#\\extreme\\TestHw1\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Owner\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",

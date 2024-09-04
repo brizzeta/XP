@@ -1,46 +1,61 @@
 ﻿namespace App
 {
-    public record RomanNumber(int Value)
+    public record RomanNumber(int value)
     {
-        private static readonly Dictionary<char, int> RomanToIntegerMap = new Dictionary<char, int>
-        {
-            { 'I', 1 },
-            { 'V', 5 },
-            { 'X', 10 },
-            { 'L', 50 },
-            { 'C', 100 },
-            { 'D', 500 },
-            { 'M', 1000 }
-        };
+        private readonly int _value = value;
+
+        public int Value => _value;
 
         public static RomanNumber Parse(string input)
         {
-            if (string.IsNullOrEmpty(input))
-            {
-                return new RomanNumber(0);
-            }
+            //input = input.ToUpper(); 
 
+            //if (string.IsNullOrEmpty(input)) 
+            //{ 
+            //    return new RomanNumber(0); 
+            //} 
+
+            //Dictionary<char,int> romanMap = new Dictionary<char, int> 
+            //{ 
+            //    {'I', 1}, 
+            //    {'V', 5}, 
+            //    {'X', 10}, 
+            //    {'L', 50}, 
+            //    {'C', 100}, 
+            //    {'D', 500}, 
+            //    {'M', 1000} 
+            //}; 
+
+            //if (romanMap.TryGetValue(input[0], out int value)) 
+            //{ 
+            //    return new RomanNumber(value); 
+            //} 
+            //else 
+            //{ 
+            //    throw new ArgumentException("Invalid Roman number!"); 
+            //} 
             int value = 0;
-
-            for (int i = 0; i < input.Length; i++)
+            int prevDigit = 0;
+            foreach (char c in input.Reverse())
             {
-                if (!RomanToIntegerMap.TryGetValue(input[i], out int current))
-                {
-                    throw new ArgumentException("Invalid Roman numeral.");
-                }
-
-                if (i + 1 < input.Length && RomanToIntegerMap.TryGetValue(input[i + 1], out int next) && current < next)
-                {
-                    value -= current;
-                }
-                else
-                {
-                    value += current;
-                }
+                int digit = DigitalValue(c.ToString());
+                value += digit >= prevDigit ? digit : -digit;
+                prevDigit = digit;
             }
-
-            return new RomanNumber(value);
+            return new(value);
         }
+
+        public static int DigitalValue(String digit) => digit switch
+        {
+            "N" => 0,
+            "I" => 1,
+            "V" => 5,
+            "X" => 10,
+            "L" => 50,
+            "C" => 100,
+            "D" => 500,
+            _ => 1000
+        };
+
     }
 }
-
